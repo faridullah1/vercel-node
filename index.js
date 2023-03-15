@@ -8,6 +8,8 @@ const users = [{
     'email': 'faridullah996@gmail.com'
 }];
 
+const home = require('./routes/home');
+
 app.get('/', (req, res) => {
     res.status(200).json({
         status: 'success',
@@ -15,16 +17,10 @@ app.get('/', (req, res) => {
     });
 });
 
-app.get('/api/users', (req, res) => {
-    res.status(200).json({
-        status: 'success',
-        data: { users }
-    });
-});
+app.use('/api/home', home);
+
 
 const port = process.env.NODE_ENV || 3000;
 app.listen(port, () => {
     console.log(`Server is listening on port ${port}`);
 });
-
-module.exports = app;
