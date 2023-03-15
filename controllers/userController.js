@@ -1,9 +1,8 @@
-const users = [{
-    'name': 'faridullah',
-    'email': 'faridullah996@gmail.com'
-}];
+const { User } = require("../models/userModel");
 
-exports.getAllUsers = (req, res) => {
+exports.getAllUsers = async (req, res) => {
+    const users = await User.findAll();
+
     res.status(200).json({
         status: 'success',
         data: {
