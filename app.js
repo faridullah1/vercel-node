@@ -3,12 +3,7 @@ const app = express();
 
 app.use(express.json());
 
-const users = [{
-    'name': 'faridullah',
-    'email': 'faridullah996@gmail.com'
-}];
-
-const home = require('./routes/home');
+const userRouter = require('./routes/usersRoutes');
 
 app.get('/', (req, res) => {
     res.status(200).json({
@@ -17,6 +12,6 @@ app.get('/', (req, res) => {
     });
 });
 
-app.use('/api/home', home);
+app.use('/api/users', userRouter);
 
 module.exports = app;
